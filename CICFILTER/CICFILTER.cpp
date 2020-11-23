@@ -9,6 +9,7 @@
 #include <iostream>
 using namespace std;
 CIC_FILTER::CIC_FILTER(bool U, int W, int R, int N, int M){
+    
     util    = U;
     ratio   = R;
     stage   = N;
