@@ -7,6 +7,8 @@
 
 #ifndef CICFILTER_hpp
 #define CICFILTER_hpp
+#define CIC_Interpolation   false
+#define CIC_Decimation      true
 
 #include <stdio.h>
 
