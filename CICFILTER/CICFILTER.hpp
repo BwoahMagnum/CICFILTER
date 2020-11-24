@@ -16,6 +16,9 @@ class CIC_FILTER{
 public:
     CIC_FILTER(bool U, int W=1, int R=1, int N=1, int M=1);
     ~CIC_FILTER();
+    void    SetParam(bool U, int W=1, int R=1, int N=1, int M=1);
+    double* Output(double* data);
+
     // void INIT();
 private:
     int     ratio;
@@ -25,6 +28,7 @@ private:
     bool    util;
     double* Z_Stage_Comb;
     double* Z_Stage_Integrator;
+    double* result;
 };
 
 #endif /* CICFILTER_hpp */

@@ -10,8 +10,10 @@
 using namespace std;
 int main(int argc, const char * argv[]) {
     // insert code here...
+    double* y;
+    CIC_FILTER x(CIC_Interpolation, 1, 1, 3, 3);
     cout << "Hello, World!\n";
-    CIC_FILTER(CIC_Interpolation, 1, 1, 3, 3);
+    // CIC_FILTER(x, 1);
     // ~CIC_FILTER();
     return 0;
 }
