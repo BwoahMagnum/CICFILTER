@@ -15,8 +15,14 @@ CIC_FILTER::CIC_FILTER(bool U, int W, int R, int N, int M){
     stage   = N;
     sample  = M;
     channel = W;
+    
+    Z_Stage_Comb        = new double[stage];
+    Z_Stage_Integrator  = new double[stage];
+    
     cout<<"Class CIC_FILTER has been created successfully!"<<endl;
 }
 CIC_FILTER::~CIC_FILTER(void){
-    
+    delete [] Z_Stage_Comb;
+    delete [] Z_Stage_Integrator;
+    cout<<"Class CIC_FILTER has been eliminated successfully!"<<endl;
 }

@@ -12,5 +12,6 @@ int main(int argc, const char * argv[]) {
     // insert code here...
     cout << "Hello, World!\n";
     CIC_FILTER(CIC_Interpolation);
+    // ~CIC_FILTER();
     return 0;
 }
