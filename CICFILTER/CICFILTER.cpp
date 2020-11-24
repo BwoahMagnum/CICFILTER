@@ -10,15 +10,16 @@
 using namespace std;
 CIC_FILTER::CIC_FILTER(bool U, int W, int R, int N, int M){
     
-    if (M>2)
     util    = U;
-    ratio   = R;
-    stage   = N;
-    sample  = M;
-    channel = W;
+    ratio   = (R>0)?R:1;
+    stage   = (N>0)?N:1;
+    sample  = (M>2)?M:1;
+    channel = (W>0)?W:1;
     
     Z_Stage_Comb        = new double[stage];
     Z_Stage_Integrator  = new double[stage];
+    
+    cout<<"sample actually is "<<sample<<endl;
     for (int i=0; i<stage; i++)
         cout<<Z_Stage_Comb[i]<<endl;
     cout<<"Class CIC_FILTER has been created successfully!"<<endl;
