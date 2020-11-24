@@ -21,6 +21,10 @@ int main(int argc, const char * argv[]) {
     // CIC_FILTER(x, 1);
     // ~CIC_FILTER();
     if (NULL!=y)
+    {
         free(y);
+        y = NULL;
+    }
+    
     return 0;
 }
