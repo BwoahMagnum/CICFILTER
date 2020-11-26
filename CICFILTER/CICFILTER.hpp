@@ -1,34 +1,38 @@
 //
-//  CICFILTER.hpp
-//  CICFILTER
-//
-//  Created by 李彦锋 on 2020/11/23.
+// Created by 李彦锋 on 2020/11/25.
 //
 
-#ifndef CICFILTER_hpp
-#define CICFILTER_hpp
+#ifndef CICFILTER_CICFILTER_H
+#define CICFILTER_CICFILTER_H
+
 #define CIC_Interpolation   false
 #define CIC_Decimation      true
-
-#include <stdio.h>
+#define CIC_Front           0
+#define CIC_Rear            1
+#define CIC_Nuovo           0
+#define CIC_Vecchio         1
 
 class CIC_FILTER{
 public:
     CIC_FILTER(bool U, int W=1, int R=1, int N=1, int M=1);
     ~CIC_FILTER();
-    void    SetParam(bool U, int W=1, int R=1, int N=1, int M=1);
     double* Output(double* data);
 
-    // void INIT();
 private:
     int     ratio;
     int     stage;
     int     sample;
     int     channel;
     bool    util;
+
     double* Z_Stage_Comb;
     double* Z_Stage_Integrator;
-    double* result;
+    double* Swing_Buffer;
+
+    double* SampleIndex[2];
+    double* BufIndex[2];
+
+    void SwingIndex(double* Index[2]);
 };
 
-#endif /* CICFILTER_hpp */
+#endif //CICFILTER_CICFILTER_H
