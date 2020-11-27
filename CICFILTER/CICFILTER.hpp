@@ -14,9 +14,11 @@
 
 class CIC_FILTER{
 public:
-    CIC_FILTER(bool U, int W=1, int R=1, int N=1, int M=1);
+    CIC_FILTER(bool U, int W, int R=1, int N=1, int M=1);
     ~CIC_FILTER();
-    double* Output(double* data);
+
+    int put(double* dataInput);
+    int get(double* dataOutput);
 
 private:
     int     ratio;
@@ -28,11 +30,15 @@ private:
     double* Z_Stage_Comb;
     double* Z_Stage_Integrator;
     double* Swing_Buffer;
+    double* Mid_Buffer;
 
     double* SampleIndex[2];
     double* BufIndex[2];
 
-    void SwingIndex(double* Index[2]);
+
+    void Combs();
+    void Intergrators();
+    static void SwingIndex(double* Index[2]);
 };
 
 #endif //CICFILTER_CICFILTER_H
